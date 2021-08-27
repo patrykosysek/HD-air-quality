@@ -1,0 +1,229 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="f4f12483-24c9-4c32-94b3-ab0ca03f3cbc" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>HD</ID>
+  <Name>HD</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Dimensions>
+    <Dimension dwd:design-time-name="26872233-d373-4ea5-a492-9ec40b2ef00f">
+      <ID>Geografia</ID>
+      <Name>Geografia</Name>
+      <DimensionID>Geografia</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="d6eea530-78f1-43fe-b1b1-acbcbf285ba2">
+          <AttributeID>Geografia Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="b8780bcf-0973-4683-a94d-231a1be91f76">
+          <AttributeID>Miasto</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="5e5bdaeb-06a4-4c4e-a7a9-3dd3f8d10216">
+      <ID>Data</ID>
+      <Name>Data</Name>
+      <DimensionID>Data</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="a2f644a9-c86f-433d-b7ea-c1572dc36cc7">
+          <AttributeID>Data Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="9fa4ed34-6e9d-43a9-ab02-d8db8a375f2f">
+          <AttributeID>Data</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="c3057a53-69dc-4869-b014-1aff28e544eb">
+      <ID>Statystyki Covid</ID>
+      <Name>Statystyki Covid</Name>
+      <DimensionID>Statystyki Covid</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="1e89ed23-d909-44f8-8a26-ecc7f3aaca59">
+          <AttributeID>Statystyki Covid Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="92bb427a-4bd6-4516-8a14-d5b89d7873e4">
+          <AttributeID>Suma Zgonow</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+  </Dimensions>
+  <MeasureGroups>
+    <MeasureGroup dwd:design-time-name="5e47867d-2c34-4e68-8fa5-e6dcd9076d4b">
+      <ID>Jakosc Powietrza</ID>
+      <Name>Jakosc Powietrza</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="c687fb9d-0665-4cd2-b978-42d7a8c0a5d3">
+          <ID>Pm25</ID>
+          <Name>Pm25</Name>
+          <Source dwd:design-time-name="87e9122c-a598-42ed-b552-2355300b495d">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="ee843225-2f4b-4f4f-a8c1-d4af6ba83d24">
+              <TableID>dbo_JakoscPowietrza</TableID>
+              <ColumnID>pm25</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="91160017-c959-4f45-b751-062845acd019">
+          <ID>Pm10</ID>
+          <Name>Pm10</Name>
+          <Source dwd:design-time-name="23a11dd8-6ef9-464f-aff5-adb5b351dc28">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="12b56fba-3c2f-4d8b-a9e2-e60fdf5d0bc6">
+              <TableID>dbo_JakoscPowietrza</TableID>
+              <ColumnID>pm10</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="99bee76d-acc7-4390-847c-85c1a808ce5c">
+          <ID>o3</ID>
+          <Name>o3</Name>
+          <Source dwd:design-time-name="5c5a04c3-a701-4785-9487-3b49ae874181">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="ef6a10dc-de1f-4b32-950c-828967c8fa92">
+              <TableID>dbo_JakoscPowietrza</TableID>
+              <ColumnID>o3</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="ffc7e41f-7a12-497f-89cc-1480a83a2af4">
+          <ID>No2</ID>
+          <Name>No2</Name>
+          <Source dwd:design-time-name="ef0f4d3a-39b2-43b3-a0bb-bd07a37326a8">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="2c08ddf9-03c5-4d9f-93b5-4665bc76b893">
+              <TableID>dbo_JakoscPowietrza</TableID>
+              <ColumnID>no2</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="4fa8a266-f3cb-4081-b651-eac6f1927120">
+          <ID>Co</ID>
+          <Name>Co</Name>
+          <Source dwd:design-time-name="4667810d-69f4-4048-b60d-3cd4df4fbf7f">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="b13223da-ac54-49c5-b2c9-09941d013063">
+              <TableID>dbo_JakoscPowietrza</TableID>
+              <ColumnID>co</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="cd656155-b1f1-4db9-9245-f05da6d107f5">
+          <ID>So2</ID>
+          <Name>So2</Name>
+          <Source dwd:design-time-name="7e99cf68-7772-46e6-9fd4-cd245ea1f0fd">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="01d1febf-276c-48dd-bc68-eeb726e4611e">
+              <TableID>dbo_JakoscPowietrza</TableID>
+              <ColumnID>so2</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="207d4ef3-90ad-4bbe-ba4b-38a94b8394a9">
+          <CubeDimensionID>Geografia</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="bd12ec3a-4201-45bc-afb7-1b9814124c0e">
+              <AttributeID>Geografia Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="d2fbae70-b9a6-4da2-867d-041a9e430389">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="2091280c-9b59-4576-b9db-cbf5fabf7720">
+                    <TableID>dbo_JakoscPowietrza</TableID>
+                    <ColumnID>geografia_id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="0192d35d-d56b-4576-9f65-0afa7e33f622">
+          <CubeDimensionID>Data</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="9bec7904-29b1-4a48-b81a-c17585ec1dd1">
+              <AttributeID>Data Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="4cfdb2f6-9c98-4f0a-a12b-310522cf1cb8">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="0b95e517-12e2-4d3f-91d5-528367bfc153">
+                    <TableID>dbo_JakoscPowietrza</TableID>
+                    <ColumnID>data_id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="d8995a2e-42be-4b07-9f89-e848f520f9e5">
+          <CubeDimensionID>Statystyki Covid</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="26b5a5e7-898b-4e2f-b9ad-52c97fff5077">
+              <AttributeID>Statystyki Covid Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="420a3fef-f5e0-4c79-bbe9-de878acb82f6">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="c44a8625-3c37-463c-ad86-bf1aba3489bc">
+                    <TableID>dbo_JakoscPowietrza</TableID>
+                    <ColumnID>statystyki_covid_id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source dwd:design-time-name="34ba9485-8a40-423d-8e77-b48dcb2647c7">
+    <DataSourceViewID>HD</DataSourceViewID>
+  </Source>
+</Cube>

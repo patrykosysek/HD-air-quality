@@ -1,0 +1,140 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="e366bb9c-3d3d-4cdd-8c55-56f2b9c18a21" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>HD</ID>
+  <Name>HD</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:NameMatchingCriteria</Name>
+      <Value>1</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+      <Value></Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout />
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>0</DiagramViewPortLeft>
+            <DiagramViewPortTop>0</DiagramViewPortTop>
+            <DiagramBoundingLeft>0</DiagramBoundingLeft>
+            <DiagramBoundingTop>0</DiagramBoundingTop>
+            <DiagramZoom>100</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>HD</DataSourceID>
+  <Schema>
+    <xs:schema id="HD" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="HD" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="1f070c95-7e3c-41be-ae52-6584c7ca7767">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo_Data" msprop:design-time-name="a0927078-405b-47b0-a8ed-35d4fa80636b" msprop:DbTableName="Data" msprop:FriendlyName="Data" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="data_id" msprop:design-time-name="e0077987-ed51-449a-bf19-1aa9f28d5a89" msprop:DbColumnName="data_id" msprop:FriendlyName="data_id" type="xs:int" />
+                  <xs:element name="data" msprop:design-time-name="d58314f4-ead2-4aa5-8787-d20016031949" msprop:DbColumnName="data" msprop:FriendlyName="data" type="xs:dateTime" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Geografia" msprop:design-time-name="dc4443d6-bc33-436c-936a-416fd4c009d2" msprop:DbTableName="Geografia" msprop:FriendlyName="Geografia" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="geografia_id" msprop:design-time-name="be0c3a67-295e-4cca-bf0c-f15a9d632847" msprop:DbColumnName="geografia_id" msprop:FriendlyName="geografia_id" type="xs:int" />
+                  <xs:element name="miasto" msprop:design-time-name="286b17b8-3755-404a-b7c0-ea6ea89d2fe6" msprop:DbColumnName="miasto" msprop:FriendlyName="miasto">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_JakoscPowietrza" msprop:design-time-name="4e7c71f3-c6ee-4dd2-8c00-5517e5fdec57" msprop:DbTableName="JakoscPowietrza" msprop:FriendlyName="JakoscPowietrza" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="jakosc_powietrza_id" msprop:design-time-name="8686e528-10a4-41fb-aebf-68ff8f3296c5" msprop:DbColumnName="jakosc_powietrza_id" msprop:FriendlyName="jakosc_powietrza_id" type="xs:int" />
+                  <xs:element name="geografia_id" msprop:design-time-name="8824347d-3163-460d-ae90-7ae14ce87d87" msprop:DbColumnName="geografia_id" msprop:FriendlyName="geografia_id" type="xs:int" minOccurs="0" />
+                  <xs:element name="data_id" msprop:design-time-name="f1924ac2-b2e3-4066-9b47-463ef5b45ffc" msprop:DbColumnName="data_id" msprop:FriendlyName="data_id" type="xs:int" minOccurs="0" />
+                  <xs:element name="statystyki_covid_id" msprop:design-time-name="1348c683-18a9-48fd-99d2-b6e33d03d002" msprop:DbColumnName="statystyki_covid_id" msprop:FriendlyName="statystyki_covid_id" type="xs:int" minOccurs="0" />
+                  <xs:element name="pm25" msprop:design-time-name="b7019a7c-c8d2-438a-938a-759936aebd1d" msprop:DbColumnName="pm25" msprop:FriendlyName="pm25" type="xs:int" minOccurs="0" />
+                  <xs:element name="pm10" msprop:design-time-name="288fc418-b287-4d40-847a-16bbef0eca52" msprop:DbColumnName="pm10" msprop:FriendlyName="pm10" type="xs:int" minOccurs="0" />
+                  <xs:element name="o3" msprop:design-time-name="ebb5b7f9-4d17-4a51-b566-810eb57c142c" msprop:DbColumnName="o3" msprop:FriendlyName="o3" type="xs:int" minOccurs="0" />
+                  <xs:element name="no2" msprop:design-time-name="638f9bae-9b6e-45e0-b47a-0a2614d4de66" msprop:DbColumnName="no2" msprop:FriendlyName="no2" type="xs:int" minOccurs="0" />
+                  <xs:element name="co" msprop:design-time-name="bfce1c78-651c-4a57-80ec-a0539951b530" msprop:DbColumnName="co" msprop:FriendlyName="co" type="xs:int" minOccurs="0" />
+                  <xs:element name="so2" msprop:design-time-name="626260b0-9194-48f4-82bd-05fe46a5143c" msprop:DbColumnName="so2" msprop:FriendlyName="so2" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_StatystykiCovid" msprop:design-time-name="1f83e84b-53b7-42fe-a310-3b78b08a1e9f" msprop:DbTableName="StatystykiCovid" msprop:FriendlyName="StatystykiCovid" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="statystyki_covid_id" msprop:design-time-name="12bbcd5f-cc6f-459d-9428-bdd3099fc5fc" msprop:DbColumnName="statystyki_covid_id" msprop:FriendlyName="statystyki_covid_id" type="xs:int" />
+                  <xs:element name="suma_zgonow" msprop:design-time-name="962e6bdf-5e45-4dd3-a783-2f6c90b05d7f" msprop:DbColumnName="suma_zgonow" msprop:FriendlyName="suma_zgonow" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="nowe_zgony" msprop:design-time-name="f1eddc0e-9760-4ed5-9111-7d70c16b1026" msprop:DbColumnName="nowe_zgony" msprop:FriendlyName="nowe_zgony" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Data" />
+          <xs:field xpath="data_id" />
+        </xs:unique>
+        <xs:unique name="dbo_Geografia_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Geografia" />
+          <xs:field xpath="geografia_id" />
+        </xs:unique>
+        <xs:unique name="dbo_JakoscPowietrza_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_JakoscPowietrza" />
+          <xs:field xpath="jakosc_powietrza_id" />
+        </xs:unique>
+        <xs:unique name="dbo_StatystykiCovid_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_StatystykiCovid" />
+          <xs:field xpath="statystyki_covid_id" />
+        </xs:unique>
+      </xs:element>
+      <xs:annotation>
+        <xs:appinfo>
+          <msdata:Relationship name="JakoscPowietrza-Geografia" msdata:parent="dbo_Geografia" msdata:child="dbo_JakoscPowietrza" msdata:parentkey="geografia_id" msdata:childkey="geografia_id" />
+          <msdata:Relationship name="JakoscPowietrza-Data" msdata:parent="dbo_Data" msdata:child="dbo_JakoscPowietrza" msdata:parentkey="data_id" msdata:childkey="data_id" />
+          <msdata:Relationship name="JakoscPowietrza-StatystykiCovid" msdata:parent="dbo_StatystykiCovid" msdata:child="dbo_JakoscPowietrza" msdata:parentkey="statystyki_covid_id" msdata:childkey="statystyki_covid_id" />
+        </xs:appinfo>
+      </xs:annotation>
+    </xs:schema>
+    <HD xmlns="" />
+  </Schema>
+</DataSourceView>

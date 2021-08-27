@@ -1,0 +1,2895 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/20/2021 6:44:31 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-ON7OS8K"
+  DTS:CreatorName="DESKTOP-ON7OS8K\patry"
+  DTS:DTSID="{BBE9C0DF-0461-4A07-BD79-76869D31FF90}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1045"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="68"
+  DTS:VersionGUID="{0FAFC7AB-BC15-433F-A5AF-A655A58FAF4F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-ON7OS8K.HD]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BDF0B561-4A9B-4325-B78E-7357656720AB}"
+      DTS:ObjectName="DESKTOP-ON7OS8K.HD">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-ON7OS8K;Initial Catalog=HD;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[HTTP Connection Manager]"
+      DTS:CreationName="HTTP (KingswaySoft)"
+      DTS:DTSID="{AA300F78-FBEE-4A0D-8BE1-3A463155EE66}"
+      DTS:ObjectName="HTTP Connection Manager">
+      <DTS:ObjectData>
+        <ConnectionManager
+          ConnectionString="BaseUrl=http://localhost:8080/api/stream/json;AuthenticationMode=Credentials;JwtClaims='{&#xA;  &quot;header&quot;: {},&#xA;  &quot;payload&quot;: {}&#xA;}';CustomTokenCurlFile=;CustomTokenFindStrategy=JPath;CustomTokenFindExpression=;CustomTokenExpiry=0;AwsSignatureVersion=Version4;AwsSignatureMethod=HmacSHA1;AwsAccessKey=;AwsRegion=;AwsServiceName=;AzureOAuthType=ClientCredentials;AzureTenantId=;AzureClientId=;AzureCertificateLocation=Store;AzureCertificateThumbprint=;AzurePathToCertificate=;GoogleServiceAccount=;GoogleCertificateLocation=Store;GoogleCertificateThumbprint=;GooglePathToCertificate=;GoogleScope=;AzureScope=;PathToTokenFile=;AccessTokenRequestLocation=HttpHeader;Domain=;UserName=;ProxyMode=NoProxy;ProxyUsername=;ProxyServer=;ProxyServerPort=0;ThrottleRate=0;ThrottleRateUnit=PerSecond;ServiceTimeout=120;RetryOnIntermittentErrors=True;ChunkSize=0;CertificateLocation=Store;CertificateThumbprint=;PathToCertificate=;IgnoreCertificateErrors=False;CustomHeaders='{&#xA;  &quot;User-Agent&quot;: {&#xA;    &quot;value&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) SSIS Productivity Pack by KingswaySoft (like Gecko)&quot;&#xA;  },&#xA;  &quot;Accept-Encoding&quot;: {&#xA;    &quot;value&quot;: &quot;gzip, deflate&quot;&#xA;  }&#xA;}';ErrorCodes='[{&quot;code&quot;:&quot;408&quot;,&quot;retryable&quot;:true},{&quot;code&quot;:&quot;500&quot;,&quot;retryable&quot;:false},{&quot;code&quot;:&quot;502&quot;,&quot;retryable&quot;:true},{&quot;code&quot;:&quot;503&quot;,&quot;retryable&quot;:true},{&quot;code&quot;:&quot;504&quot;,&quot;retryable&quot;:true}]';HttpMethod=POST"
+          ConnectByProxy="False" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Update AIR condition"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{d5a77f6d-b5ef-464d-9ac8-f2c0f65b61ee}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update AIR condition"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Update AIR condition\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Update dbo.JakoscPowietrza
+set data_id=jakosc_powietrza_id;
+Update dbo.JakoscPowietrza
+set geografia_id=jakosc_powietrza_id;
+Update dbo.JakoscPowietrza
+set statystyki_covid_id=jakosc_powietrza_id;
+</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Update AIR condition\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-ON7OS8K.HD]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-ON7OS8K.HD]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Update AIR condition\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <externalMetadataColumns
+                    isUsed="True" />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Update AIR condition\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Update AIR condition\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Update AIR condition\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Update AIR condition\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update AIR condition\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Update AIR condition\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Update AIR condition\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Update AIR condition\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Update AIR condition\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[JakoscPowietrza]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Update AIR condition\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-ON7OS8K.HD]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-ON7OS8K.HD]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].Columns[data_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[data_id]"
+                      lineageId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].Columns[data_id]"
+                      name="data_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].Columns[jakosc_powietrza_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[jakosc_powietrza_id]"
+                      lineageId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].Columns[jakosc_powietrza_id]"
+                      name="jakosc_powietrza_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].Columns[geografia_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geografia_id]"
+                      lineageId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].Columns[geografia_id]"
+                      name="geografia_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].Columns[statystyki_covid_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[statystyki_covid_id]"
+                      lineageId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].Columns[statystyki_covid_id]"
+                      name="statystyki_covid_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].Columns[pm25]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pm25]"
+                      length="50"
+                      lineageId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].Columns[pm25]"
+                      name="pm25"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].Columns[pm10]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pm10]"
+                      length="50"
+                      lineageId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].Columns[pm10]"
+                      name="pm10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].Columns[o3]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[o3]"
+                      length="50"
+                      lineageId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].Columns[o3]"
+                      name="o3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].Columns[no2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[no2]"
+                      length="50"
+                      lineageId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].Columns[no2]"
+                      name="no2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].Columns[so2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[so2]"
+                      length="50"
+                      lineageId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].Columns[so2]"
+                      name="so2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].Columns[co]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[co]"
+                      length="50"
+                      lineageId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].Columns[co]"
+                      name="co"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[data_id]"
+                      dataType="i4"
+                      name="data_id" />
+                    <externalMetadataColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[jakosc_powietrza_id]"
+                      dataType="i4"
+                      name="jakosc_powietrza_id" />
+                    <externalMetadataColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geografia_id]"
+                      dataType="i4"
+                      name="geografia_id" />
+                    <externalMetadataColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[statystyki_covid_id]"
+                      dataType="i4"
+                      name="statystyki_covid_id" />
+                    <externalMetadataColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pm25]"
+                      dataType="i4"
+                      name="pm25" />
+                    <externalMetadataColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pm10]"
+                      dataType="i4"
+                      name="pm10" />
+                    <externalMetadataColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[o3]"
+                      dataType="i4"
+                      name="o3" />
+                    <externalMetadataColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[no2]"
+                      dataType="i4"
+                      name="no2" />
+                    <externalMetadataColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[so2]"
+                      dataType="i4"
+                      name="so2" />
+                    <externalMetadataColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[co]"
+                      dataType="i4"
+                      name="co" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[jakosc_powietrza_id]"
+                      dataType="i4"
+                      lineageId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[jakosc_powietrza_id]"
+                      name="jakosc_powietrza_id" />
+                    <outputColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geografia_id]"
+                      dataType="i4"
+                      lineageId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geografia_id]"
+                      name="geografia_id" />
+                    <outputColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statystyki_covid_id]"
+                      dataType="i4"
+                      lineageId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statystyki_covid_id]"
+                      name="statystyki_covid_id" />
+                    <outputColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[data_id]"
+                      dataType="i4"
+                      lineageId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[data_id]"
+                      name="data_id" />
+                    <outputColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pm25]"
+                      dataType="i4"
+                      lineageId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pm25]"
+                      name="pm25" />
+                    <outputColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pm10]"
+                      dataType="i4"
+                      lineageId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pm10]"
+                      name="pm10" />
+                    <outputColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[o3]"
+                      dataType="i4"
+                      lineageId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[o3]"
+                      name="o3" />
+                    <outputColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[no2]"
+                      dataType="i4"
+                      lineageId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[no2]"
+                      name="no2" />
+                    <outputColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[so2]"
+                      dataType="i4"
+                      lineageId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[so2]"
+                      name="so2" />
+                    <outputColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[co]"
+                      dataType="i4"
+                      lineageId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[co]"
+                      name="co" />
+                    <outputColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Update AIR condition.Paths[OLE DB Source Output]"
+              endId="Package\Update AIR condition\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="OLE DB Source Output"
+              startId="Package\Update AIR condition\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Upload AIR condition"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{37a01778-c480-4cfb-a465-be8325856472}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Upload AIR condition"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Upload AIR condition\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Upload AIR condition\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Upload AIR condition\Data Conversion.Inputs[Data Conversion Input].Columns[pm25]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="pm25"
+                      lineageId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[pm25]" />
+                    <inputColumn
+                      refId="Package\Upload AIR condition\Data Conversion.Inputs[Data Conversion Input].Columns[pm10]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="pm10"
+                      lineageId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[pm10]" />
+                    <inputColumn
+                      refId="Package\Upload AIR condition\Data Conversion.Inputs[Data Conversion Input].Columns[no2]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="no2"
+                      lineageId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[no2]" />
+                    <inputColumn
+                      refId="Package\Upload AIR condition\Data Conversion.Inputs[Data Conversion Input].Columns[o3]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="o3"
+                      lineageId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[o3]" />
+                    <inputColumn
+                      refId="Package\Upload AIR condition\Data Conversion.Inputs[Data Conversion Input].Columns[so2]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="so2"
+                      lineageId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[so2]" />
+                    <inputColumn
+                      refId="Package\Upload AIR condition\Data Conversion.Inputs[Data Conversion Input].Columns[co]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="co"
+                      lineageId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[co]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Upload AIR condition\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Upload AIR condition\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Upload AIR condition\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pm25]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Upload AIR condition\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pm25]"
+                      name="Copy of pm25"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[pm25]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Upload AIR condition\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pm10]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Upload AIR condition\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pm10]"
+                      name="Copy of pm10"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[pm10]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Upload AIR condition\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of no2]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Upload AIR condition\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of no2]"
+                      name="Copy of no2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[no2]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Upload AIR condition\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of o3]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Upload AIR condition\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of o3]"
+                      name="Copy of o3"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[o3]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Upload AIR condition\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of so2]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Upload AIR condition\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of so2]"
+                      name="Copy of so2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[so2]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Upload AIR condition\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of co]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Upload AIR condition\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of co]"
+                      name="Copy of co"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[co]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Upload AIR condition\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Upload AIR condition\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Upload AIR condition\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Upload AIR condition\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Upload AIR condition\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Upload AIR condition\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Upload AIR condition\JSON Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Retrieves JSON documents and extracts them into columns."
+              name="JSON Source"
+              usesDispositions="true"
+              version="5">
+              <properties>
+                <property
+                  dataType="System.String"
+                  name="Design">[{"NodeType":2,"OutputType":"Output","OutputOrColumnName":"Root","Children":[{"NodeName":"id","NodeType":3,"OutputType":"Column","OutputOrColumnName":"id"},{"NodeName":"date","NodeType":3,"OutputType":"Column","OutputOrColumnName":"date"},{"NodeName":"total_deaths","NodeType":3,"OutputType":"Column","OutputOrColumnName":"total_deaths"},{"NodeName":"new_deaths","NodeType":3,"OutputType":"Column","OutputOrColumnName":"new_deaths"},{"NodeName":"pm25","NodeType":3,"OutputType":"Column","OutputOrColumnName":"pm25"},{"NodeName":"pm10","NodeType":3,"OutputType":"Column","OutputOrColumnName":"pm10"},{"NodeName":"o3","NodeType":3,"OutputType":"Column","OutputOrColumnName":"o3"},{"NodeName":"no2","NodeType":3,"OutputType":"Column","OutputOrColumnName":"no2"},{"NodeName":"so2","NodeType":3,"OutputType":"Column","OutputOrColumnName":"so2"},{"NodeName":"co","NodeType":3,"OutputType":"Column","OutputOrColumnName":"co"},{"NodeName":"city","NodeType":3,"OutputType":"Column","OutputOrColumnName":"city"}]}]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the text qualifier to use when merging repeated values."
+                  expressionType="Notify"
+                  name="IsRepeatedTextQualifier">Double-Quote ( " )</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the text delimiter to use when merging repeated values."
+                  expressionType="Notify"
+                  name="IsRepeatedTextDelimiter">Comma ( , )</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how to read null values from the document."
+                  expressionType="Notify"
+                  name="NullMode"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.JsonExtractNullMode">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the timzone to convert DateTimes to"
+                  expressionType="Notify"
+                  name="OutputTimezone"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.TimeZone, KingswaySoft.IntegrationToolkit.ProductivityPack, Version=1.0.2019.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the text encoding to use when reading the document."
+                  expressionType="Notify"
+                  name="Encoding">65001</property>
+                <property
+                  dataType="System.String"
+                  description="The relative path of the HTTP request that will be combined with the base path from the connection manager."
+                  expressionType="Notify"
+                  name="RelativePath">{"IsExpression":false,"Value":""}</property>
+                <property
+                  dataType="System.String"
+                  description="The body of the HTTP request."
+                  expressionType="Notify"
+                  name="RequestBody">{"IsExpression":false,"Value":""}</property>
+                <property
+                  dataType="System.String"
+                  description="The headers that will be used in the request."
+                  expressionType="Notify"
+                  name="RequestHeaders">[]</property>
+                <property
+                  dataType="System.String"
+                  description="The query string parameters that will be used in the request."
+                  expressionType="Notify"
+                  name="RequestQueryStringParameters">[]</property>
+                <property
+                  dataType="System.String"
+                  description="The expression that determines if requests should keep being sent."
+                  expressionType="Notify"
+                  name="RequestAgainRule">{"IsExpression":false,"Value":"GetValueFromJson(@RequestBody),\"page\")!=GetValueFromJson(@(RequestBody), \"total_pages\")"}</property>
+                <property
+                  dataType="System.String"
+                  description="The HTTP Method to use when sending requests."
+                  expressionType="Notify"
+                  name="HttpMethod">GET</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the variable to get the json document from."
+                  expressionType="Notify"
+                  name="InputVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the path to the Item to get the json document from."
+                  expressionType="Notify"
+                  name="LocalFilePath"></property>
+                <property
+                  dataType="System.Int32"
+                  description="The max number of identical requests that will be before an error is raised."
+                  expressionType="Notify"
+                  name="MaxIdenticalRequests">1</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.JsonSourceComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Upload AIR condition\JSON Source.Connections[HTTP (KingswaySoft)]"
+                  connectionManagerID="Package.ConnectionManagers[HTTP Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[HTTP Connection Manager]"
+                  description="ProductivityPack"
+                  name="HTTP (KingswaySoft)" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Upload AIR condition\JSON Source.Outputs[Root]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Root"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.Int32"
+                      description="KeyField"
+                      name="KeyField">#{Package\Upload AIR condition\JSON Source.Outputs[Root].ExternalColumns[_RowIndex]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.Int32"
+                      description="RowIndexField"
+                      name="RowIndexField">#{Package\Upload AIR condition\JSON Source.Outputs[Root].ExternalColumns[_RowIndex]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.Int32"
+                      description="ParentId"
+                      name="ParentId">#{Package\Upload AIR condition\-1:invalid}</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[_RowIndex]"
+                      dataType="i8"
+                      externalMetadataColumnId="Package\Upload AIR condition\JSON Source.Outputs[Root].ExternalColumns[_RowIndex]"
+                      lineageId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[_RowIndex]"
+                      name="_RowIndex"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[id]"
+                      dataType="i8"
+                      externalMetadataColumnId="Package\Upload AIR condition\JSON Source.Outputs[Root].ExternalColumns[id]"
+                      lineageId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[date]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload AIR condition\JSON Source.Outputs[Root].ExternalColumns[date]"
+                      length="50"
+                      lineageId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[date]"
+                      name="date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[total_deaths]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload AIR condition\JSON Source.Outputs[Root].ExternalColumns[total_deaths]"
+                      length="50"
+                      lineageId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[total_deaths]"
+                      name="total_deaths"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[new_deaths]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload AIR condition\JSON Source.Outputs[Root].ExternalColumns[new_deaths]"
+                      length="50"
+                      lineageId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[new_deaths]"
+                      name="new_deaths"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[pm25]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload AIR condition\JSON Source.Outputs[Root].ExternalColumns[pm25]"
+                      length="50"
+                      lineageId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[pm25]"
+                      name="pm25"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[pm10]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload AIR condition\JSON Source.Outputs[Root].ExternalColumns[pm10]"
+                      length="50"
+                      lineageId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[pm10]"
+                      name="pm10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[o3]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload AIR condition\JSON Source.Outputs[Root].ExternalColumns[o3]"
+                      length="50"
+                      lineageId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[o3]"
+                      name="o3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[no2]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload AIR condition\JSON Source.Outputs[Root].ExternalColumns[no2]"
+                      length="50"
+                      lineageId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[no2]"
+                      name="no2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[so2]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload AIR condition\JSON Source.Outputs[Root].ExternalColumns[so2]"
+                      length="50"
+                      lineageId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[so2]"
+                      name="so2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[co]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload AIR condition\JSON Source.Outputs[Root].ExternalColumns[co]"
+                      length="50"
+                      lineageId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[co]"
+                      name="co"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[city]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload AIR condition\JSON Source.Outputs[Root].ExternalColumns[city]"
+                      length="50"
+                      lineageId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[city]"
+                      name="city"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Upload AIR condition\JSON Source.Outputs[Root].ExternalColumns[_RowIndex]"
+                      dataType="i8"
+                      name="_RowIndex" />
+                    <externalMetadataColumn
+                      refId="Package\Upload AIR condition\JSON Source.Outputs[Root].ExternalColumns[id]"
+                      dataType="i8"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Upload AIR condition\JSON Source.Outputs[Root].ExternalColumns[date]"
+                      dataType="wstr"
+                      length="50"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\Upload AIR condition\JSON Source.Outputs[Root].ExternalColumns[total_deaths]"
+                      dataType="wstr"
+                      length="50"
+                      name="total_deaths" />
+                    <externalMetadataColumn
+                      refId="Package\Upload AIR condition\JSON Source.Outputs[Root].ExternalColumns[new_deaths]"
+                      dataType="wstr"
+                      length="50"
+                      name="new_deaths" />
+                    <externalMetadataColumn
+                      refId="Package\Upload AIR condition\JSON Source.Outputs[Root].ExternalColumns[pm25]"
+                      dataType="wstr"
+                      length="50"
+                      name="pm25" />
+                    <externalMetadataColumn
+                      refId="Package\Upload AIR condition\JSON Source.Outputs[Root].ExternalColumns[pm10]"
+                      dataType="wstr"
+                      length="50"
+                      name="pm10" />
+                    <externalMetadataColumn
+                      refId="Package\Upload AIR condition\JSON Source.Outputs[Root].ExternalColumns[o3]"
+                      dataType="wstr"
+                      length="50"
+                      name="o3" />
+                    <externalMetadataColumn
+                      refId="Package\Upload AIR condition\JSON Source.Outputs[Root].ExternalColumns[no2]"
+                      dataType="wstr"
+                      length="50"
+                      name="no2" />
+                    <externalMetadataColumn
+                      refId="Package\Upload AIR condition\JSON Source.Outputs[Root].ExternalColumns[so2]"
+                      dataType="wstr"
+                      length="50"
+                      name="so2" />
+                    <externalMetadataColumn
+                      refId="Package\Upload AIR condition\JSON Source.Outputs[Root].ExternalColumns[co]"
+                      dataType="wstr"
+                      length="50"
+                      name="co" />
+                    <externalMetadataColumn
+                      refId="Package\Upload AIR condition\JSON Source.Outputs[Root].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="50"
+                      name="city" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Upload AIR condition\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[JakoscPowietrza]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Upload AIR condition\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-ON7OS8K.HD]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-ON7OS8K.HD]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Upload AIR condition\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Upload AIR condition\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[id]"
+                      cachedDataType="i8"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\Upload AIR condition\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[jakosc_powietrza_id]"
+                      lineageId="Package\Upload AIR condition\JSON Source.Outputs[Root].Columns[id]" />
+                    <inputColumn
+                      refId="Package\Upload AIR condition\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of pm25]"
+                      cachedDataType="i4"
+                      cachedName="Copy of pm25"
+                      externalMetadataColumnId="Package\Upload AIR condition\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pm25]"
+                      lineageId="Package\Upload AIR condition\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pm25]" />
+                    <inputColumn
+                      refId="Package\Upload AIR condition\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of pm10]"
+                      cachedDataType="i4"
+                      cachedName="Copy of pm10"
+                      externalMetadataColumnId="Package\Upload AIR condition\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pm10]"
+                      lineageId="Package\Upload AIR condition\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pm10]" />
+                    <inputColumn
+                      refId="Package\Upload AIR condition\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of o3]"
+                      cachedDataType="i4"
+                      cachedName="Copy of o3"
+                      externalMetadataColumnId="Package\Upload AIR condition\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[o3]"
+                      lineageId="Package\Upload AIR condition\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of o3]" />
+                    <inputColumn
+                      refId="Package\Upload AIR condition\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of no2]"
+                      cachedDataType="i4"
+                      cachedName="Copy of no2"
+                      externalMetadataColumnId="Package\Upload AIR condition\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[no2]"
+                      lineageId="Package\Upload AIR condition\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of no2]" />
+                    <inputColumn
+                      refId="Package\Upload AIR condition\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of so2]"
+                      cachedDataType="i4"
+                      cachedName="Copy of so2"
+                      externalMetadataColumnId="Package\Upload AIR condition\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[so2]"
+                      lineageId="Package\Upload AIR condition\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of so2]" />
+                    <inputColumn
+                      refId="Package\Upload AIR condition\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of co]"
+                      cachedDataType="i4"
+                      cachedName="Copy of co"
+                      externalMetadataColumnId="Package\Upload AIR condition\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[co]"
+                      lineageId="Package\Upload AIR condition\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of co]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Upload AIR condition\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[statystyki_covid_id]"
+                      dataType="i4"
+                      name="statystyki_covid_id" />
+                    <externalMetadataColumn
+                      refId="Package\Upload AIR condition\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[jakosc_powietrza_id]"
+                      dataType="i4"
+                      name="jakosc_powietrza_id" />
+                    <externalMetadataColumn
+                      refId="Package\Upload AIR condition\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[geografia_id]"
+                      dataType="i4"
+                      name="geografia_id" />
+                    <externalMetadataColumn
+                      refId="Package\Upload AIR condition\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[data_id]"
+                      dataType="i4"
+                      name="data_id" />
+                    <externalMetadataColumn
+                      refId="Package\Upload AIR condition\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pm25]"
+                      dataType="i4"
+                      name="pm25" />
+                    <externalMetadataColumn
+                      refId="Package\Upload AIR condition\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pm10]"
+                      dataType="i4"
+                      name="pm10" />
+                    <externalMetadataColumn
+                      refId="Package\Upload AIR condition\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[o3]"
+                      dataType="i4"
+                      name="o3" />
+                    <externalMetadataColumn
+                      refId="Package\Upload AIR condition\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[no2]"
+                      dataType="i4"
+                      name="no2" />
+                    <externalMetadataColumn
+                      refId="Package\Upload AIR condition\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[so2]"
+                      dataType="i4"
+                      name="so2" />
+                    <externalMetadataColumn
+                      refId="Package\Upload AIR condition\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[co]"
+                      dataType="i4"
+                      name="co" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Upload AIR condition\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Upload AIR condition\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Upload AIR condition\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Upload AIR condition\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Upload AIR condition\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Upload AIR condition\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Upload AIR condition.Paths[Data Conversion Output]"
+              endId="Package\Upload AIR condition\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Upload AIR condition\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Upload AIR condition.Paths[Root]"
+              endId="Package\Upload AIR condition\Data Conversion.Inputs[Data Conversion Input]"
+              name="Root"
+              startId="Package\Upload AIR condition\JSON Source.Outputs[Root]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Upload COVID statistic"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{3b9df6a9-ac94-4a2f-ba91-67a3459edf22}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Upload COVID statistic"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Upload COVID statistic\JSON Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Retrieves JSON documents and extracts them into columns."
+              name="JSON Source"
+              usesDispositions="true"
+              version="5">
+              <properties>
+                <property
+                  dataType="System.String"
+                  name="Design">[{"NodeType":2,"OutputType":"Output","OutputOrColumnName":"Root","Children":[{"NodeName":"id","NodeType":3,"OutputType":"Column","OutputOrColumnName":"id"},{"NodeName":"date","NodeType":3,"OutputType":"Column","OutputOrColumnName":"date"},{"NodeName":"total_deaths","NodeType":3,"OutputType":"Column","OutputOrColumnName":"total_deaths"},{"NodeName":"new_deaths","NodeType":3,"OutputType":"Column","OutputOrColumnName":"new_deaths"},{"NodeName":"pm25","NodeType":3,"OutputType":"Column","OutputOrColumnName":"pm25"},{"NodeName":"pm10","NodeType":3,"OutputType":"Column","OutputOrColumnName":"pm10"},{"NodeName":"o3","NodeType":3,"OutputType":"Column","OutputOrColumnName":"o3"},{"NodeName":"no2","NodeType":3,"OutputType":"Column","OutputOrColumnName":"no2"},{"NodeName":"so2","NodeType":3,"OutputType":"Column","OutputOrColumnName":"so2"},{"NodeName":"co","NodeType":3,"OutputType":"Column","OutputOrColumnName":"co"},{"NodeName":"city","NodeType":3,"OutputType":"Column","OutputOrColumnName":"city"}]}]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the text qualifier to use when merging repeated values."
+                  expressionType="Notify"
+                  name="IsRepeatedTextQualifier">Double-Quote ( " )</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the text delimiter to use when merging repeated values."
+                  expressionType="Notify"
+                  name="IsRepeatedTextDelimiter">Comma ( , )</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how to read null values from the document."
+                  expressionType="Notify"
+                  name="NullMode"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.JsonExtractNullMode">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the timzone to convert DateTimes to"
+                  expressionType="Notify"
+                  name="OutputTimezone"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.TimeZone, KingswaySoft.IntegrationToolkit.ProductivityPack, Version=1.0.2019.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the text encoding to use when reading the document."
+                  expressionType="Notify"
+                  name="Encoding">65001</property>
+                <property
+                  dataType="System.String"
+                  description="The relative path of the HTTP request that will be combined with the base path from the connection manager."
+                  expressionType="Notify"
+                  name="RelativePath">{"IsExpression":false,"Value":""}</property>
+                <property
+                  dataType="System.String"
+                  description="The body of the HTTP request."
+                  expressionType="Notify"
+                  name="RequestBody">{"IsExpression":false,"Value":""}</property>
+                <property
+                  dataType="System.String"
+                  description="The headers that will be used in the request."
+                  expressionType="Notify"
+                  name="RequestHeaders">[]</property>
+                <property
+                  dataType="System.String"
+                  description="The query string parameters that will be used in the request."
+                  expressionType="Notify"
+                  name="RequestQueryStringParameters">[]</property>
+                <property
+                  dataType="System.String"
+                  description="The expression that determines if requests should keep being sent."
+                  expressionType="Notify"
+                  name="RequestAgainRule">{"IsExpression":false,"Value":"GetValueFromJson(@RequestBody),\"page\")!=GetValueFromJson(@(RequestBody), \"total_pages\")"}</property>
+                <property
+                  dataType="System.String"
+                  description="The HTTP Method to use when sending requests."
+                  expressionType="Notify"
+                  name="HttpMethod">GET</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the variable to get the json document from."
+                  expressionType="Notify"
+                  name="InputVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the path to the Item to get the json document from."
+                  expressionType="Notify"
+                  name="LocalFilePath"></property>
+                <property
+                  dataType="System.Int32"
+                  description="The max number of identical requests that will be before an error is raised."
+                  expressionType="Notify"
+                  name="MaxIdenticalRequests">1</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.JsonSourceComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Upload COVID statistic\JSON Source.Connections[HTTP (KingswaySoft)]"
+                  connectionManagerID="Package.ConnectionManagers[HTTP Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[HTTP Connection Manager]"
+                  description="ProductivityPack"
+                  name="HTTP (KingswaySoft)" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Upload COVID statistic\JSON Source.Outputs[Root]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Root"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.Int32"
+                      description="KeyField"
+                      name="KeyField">#{Package\Upload COVID statistic\JSON Source.Outputs[Root].ExternalColumns[_RowIndex]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.Int32"
+                      description="RowIndexField"
+                      name="RowIndexField">#{Package\Upload COVID statistic\JSON Source.Outputs[Root].ExternalColumns[_RowIndex]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.Int32"
+                      description="ParentId"
+                      name="ParentId">#{Package\Upload COVID statistic\-1:invalid}</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Upload COVID statistic\JSON Source.Outputs[Root].Columns[_RowIndex]"
+                      dataType="i8"
+                      externalMetadataColumnId="Package\Upload COVID statistic\JSON Source.Outputs[Root].ExternalColumns[_RowIndex]"
+                      lineageId="Package\Upload COVID statistic\JSON Source.Outputs[Root].Columns[_RowIndex]"
+                      name="_RowIndex"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload COVID statistic\JSON Source.Outputs[Root].Columns[id]"
+                      dataType="i8"
+                      externalMetadataColumnId="Package\Upload COVID statistic\JSON Source.Outputs[Root].ExternalColumns[id]"
+                      lineageId="Package\Upload COVID statistic\JSON Source.Outputs[Root].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload COVID statistic\JSON Source.Outputs[Root].Columns[date]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload COVID statistic\JSON Source.Outputs[Root].ExternalColumns[date]"
+                      length="50"
+                      lineageId="Package\Upload COVID statistic\JSON Source.Outputs[Root].Columns[date]"
+                      name="date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload COVID statistic\JSON Source.Outputs[Root].Columns[total_deaths]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload COVID statistic\JSON Source.Outputs[Root].ExternalColumns[total_deaths]"
+                      length="50"
+                      lineageId="Package\Upload COVID statistic\JSON Source.Outputs[Root].Columns[total_deaths]"
+                      name="total_deaths"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload COVID statistic\JSON Source.Outputs[Root].Columns[new_deaths]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload COVID statistic\JSON Source.Outputs[Root].ExternalColumns[new_deaths]"
+                      length="50"
+                      lineageId="Package\Upload COVID statistic\JSON Source.Outputs[Root].Columns[new_deaths]"
+                      name="new_deaths"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload COVID statistic\JSON Source.Outputs[Root].Columns[pm25]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload COVID statistic\JSON Source.Outputs[Root].ExternalColumns[pm25]"
+                      length="50"
+                      lineageId="Package\Upload COVID statistic\JSON Source.Outputs[Root].Columns[pm25]"
+                      name="pm25"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload COVID statistic\JSON Source.Outputs[Root].Columns[pm10]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload COVID statistic\JSON Source.Outputs[Root].ExternalColumns[pm10]"
+                      length="50"
+                      lineageId="Package\Upload COVID statistic\JSON Source.Outputs[Root].Columns[pm10]"
+                      name="pm10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload COVID statistic\JSON Source.Outputs[Root].Columns[o3]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload COVID statistic\JSON Source.Outputs[Root].ExternalColumns[o3]"
+                      length="50"
+                      lineageId="Package\Upload COVID statistic\JSON Source.Outputs[Root].Columns[o3]"
+                      name="o3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload COVID statistic\JSON Source.Outputs[Root].Columns[no2]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload COVID statistic\JSON Source.Outputs[Root].ExternalColumns[no2]"
+                      length="50"
+                      lineageId="Package\Upload COVID statistic\JSON Source.Outputs[Root].Columns[no2]"
+                      name="no2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload COVID statistic\JSON Source.Outputs[Root].Columns[so2]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload COVID statistic\JSON Source.Outputs[Root].ExternalColumns[so2]"
+                      length="50"
+                      lineageId="Package\Upload COVID statistic\JSON Source.Outputs[Root].Columns[so2]"
+                      name="so2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload COVID statistic\JSON Source.Outputs[Root].Columns[co]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload COVID statistic\JSON Source.Outputs[Root].ExternalColumns[co]"
+                      length="50"
+                      lineageId="Package\Upload COVID statistic\JSON Source.Outputs[Root].Columns[co]"
+                      name="co"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload COVID statistic\JSON Source.Outputs[Root].Columns[city]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload COVID statistic\JSON Source.Outputs[Root].ExternalColumns[city]"
+                      length="50"
+                      lineageId="Package\Upload COVID statistic\JSON Source.Outputs[Root].Columns[city]"
+                      name="city"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Upload COVID statistic\JSON Source.Outputs[Root].ExternalColumns[_RowIndex]"
+                      dataType="i8"
+                      name="_RowIndex" />
+                    <externalMetadataColumn
+                      refId="Package\Upload COVID statistic\JSON Source.Outputs[Root].ExternalColumns[id]"
+                      dataType="i8"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Upload COVID statistic\JSON Source.Outputs[Root].ExternalColumns[date]"
+                      dataType="wstr"
+                      length="50"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\Upload COVID statistic\JSON Source.Outputs[Root].ExternalColumns[total_deaths]"
+                      dataType="wstr"
+                      length="50"
+                      name="total_deaths" />
+                    <externalMetadataColumn
+                      refId="Package\Upload COVID statistic\JSON Source.Outputs[Root].ExternalColumns[new_deaths]"
+                      dataType="wstr"
+                      length="50"
+                      name="new_deaths" />
+                    <externalMetadataColumn
+                      refId="Package\Upload COVID statistic\JSON Source.Outputs[Root].ExternalColumns[pm25]"
+                      dataType="wstr"
+                      length="50"
+                      name="pm25" />
+                    <externalMetadataColumn
+                      refId="Package\Upload COVID statistic\JSON Source.Outputs[Root].ExternalColumns[pm10]"
+                      dataType="wstr"
+                      length="50"
+                      name="pm10" />
+                    <externalMetadataColumn
+                      refId="Package\Upload COVID statistic\JSON Source.Outputs[Root].ExternalColumns[o3]"
+                      dataType="wstr"
+                      length="50"
+                      name="o3" />
+                    <externalMetadataColumn
+                      refId="Package\Upload COVID statistic\JSON Source.Outputs[Root].ExternalColumns[no2]"
+                      dataType="wstr"
+                      length="50"
+                      name="no2" />
+                    <externalMetadataColumn
+                      refId="Package\Upload COVID statistic\JSON Source.Outputs[Root].ExternalColumns[so2]"
+                      dataType="wstr"
+                      length="50"
+                      name="so2" />
+                    <externalMetadataColumn
+                      refId="Package\Upload COVID statistic\JSON Source.Outputs[Root].ExternalColumns[co]"
+                      dataType="wstr"
+                      length="50"
+                      name="co" />
+                    <externalMetadataColumn
+                      refId="Package\Upload COVID statistic\JSON Source.Outputs[Root].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="50"
+                      name="city" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Upload COVID statistic\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[StatystykiCovid]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Upload COVID statistic\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-ON7OS8K.HD]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-ON7OS8K.HD]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Upload COVID statistic\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Upload COVID statistic\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[id]"
+                      cachedDataType="i8"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\Upload COVID statistic\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[statystyki_covid_id]"
+                      lineageId="Package\Upload COVID statistic\JSON Source.Outputs[Root].Columns[id]" />
+                    <inputColumn
+                      refId="Package\Upload COVID statistic\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[total_deaths]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="total_deaths"
+                      externalMetadataColumnId="Package\Upload COVID statistic\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[suma_zgonow]"
+                      lineageId="Package\Upload COVID statistic\JSON Source.Outputs[Root].Columns[total_deaths]" />
+                    <inputColumn
+                      refId="Package\Upload COVID statistic\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[new_deaths]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="new_deaths"
+                      externalMetadataColumnId="Package\Upload COVID statistic\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nowe_zgony]"
+                      lineageId="Package\Upload COVID statistic\JSON Source.Outputs[Root].Columns[new_deaths]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Upload COVID statistic\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[statystyki_covid_id]"
+                      dataType="i4"
+                      name="statystyki_covid_id" />
+                    <externalMetadataColumn
+                      refId="Package\Upload COVID statistic\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[suma_zgonow]"
+                      dataType="wstr"
+                      length="50"
+                      name="suma_zgonow" />
+                    <externalMetadataColumn
+                      refId="Package\Upload COVID statistic\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nowe_zgony]"
+                      dataType="wstr"
+                      length="50"
+                      name="nowe_zgony" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Upload COVID statistic\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Upload COVID statistic\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Upload COVID statistic\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Upload COVID statistic\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Upload COVID statistic\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Upload COVID statistic\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Upload COVID statistic.Paths[Root]"
+              endId="Package\Upload COVID statistic\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Root"
+              startId="Package\Upload COVID statistic\JSON Source.Outputs[Root]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Upload date"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{D3BFA898-507C-4970-AB26-36A6A8DF52B5}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Upload date"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Upload date\JSON Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Retrieves JSON documents and extracts them into columns."
+              name="JSON Source"
+              usesDispositions="true"
+              version="5">
+              <properties>
+                <property
+                  dataType="System.String"
+                  name="Design">[{"NodeType":2,"OutputType":"Output","OutputOrColumnName":"Root","Children":[{"NodeName":"id","NodeType":3,"OutputType":"Column","OutputOrColumnName":"id"},{"NodeName":"date","NodeType":3,"OutputType":"Column","OutputOrColumnName":"date"},{"NodeName":"total_deaths","NodeType":3,"OutputType":"Column","OutputOrColumnName":"total_deaths"},{"NodeName":"new_deaths","NodeType":3,"OutputType":"Column","OutputOrColumnName":"new_deaths"},{"NodeName":"pm25","NodeType":3,"OutputType":"Column","OutputOrColumnName":"pm25"},{"NodeName":"pm10","NodeType":3,"OutputType":"Column","OutputOrColumnName":"pm10"},{"NodeName":"o3","NodeType":3,"OutputType":"Column","OutputOrColumnName":"o3"},{"NodeName":"no2","NodeType":3,"OutputType":"Column","OutputOrColumnName":"no2"},{"NodeName":"so2","NodeType":3,"OutputType":"Column","OutputOrColumnName":"so2"},{"NodeName":"co","NodeType":3,"OutputType":"Column","OutputOrColumnName":"co"},{"NodeName":"city","NodeType":3,"OutputType":"Column","OutputOrColumnName":"city"}]}]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the text qualifier to use when merging repeated values."
+                  expressionType="Notify"
+                  name="IsRepeatedTextQualifier">Double-Quote ( " )</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the text delimiter to use when merging repeated values."
+                  expressionType="Notify"
+                  name="IsRepeatedTextDelimiter">Comma ( , )</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how to read null values from the document."
+                  expressionType="Notify"
+                  name="NullMode"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.JsonExtractNullMode">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the timzone to convert DateTimes to"
+                  expressionType="Notify"
+                  name="OutputTimezone"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.TimeZone, KingswaySoft.IntegrationToolkit.ProductivityPack, Version=1.0.2019.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the text encoding to use when reading the document."
+                  expressionType="Notify"
+                  name="Encoding">65001</property>
+                <property
+                  dataType="System.String"
+                  description="The relative path of the HTTP request that will be combined with the base path from the connection manager."
+                  expressionType="Notify"
+                  name="RelativePath">{"IsExpression":false,"Value":""}</property>
+                <property
+                  dataType="System.String"
+                  description="The body of the HTTP request."
+                  expressionType="Notify"
+                  name="RequestBody">{"IsExpression":false,"Value":""}</property>
+                <property
+                  dataType="System.String"
+                  description="The headers that will be used in the request."
+                  expressionType="Notify"
+                  name="RequestHeaders">[]</property>
+                <property
+                  dataType="System.String"
+                  description="The query string parameters that will be used in the request."
+                  expressionType="Notify"
+                  name="RequestQueryStringParameters">[]</property>
+                <property
+                  dataType="System.String"
+                  description="The expression that determines if requests should keep being sent."
+                  expressionType="Notify"
+                  name="RequestAgainRule">{"IsExpression":false,"Value":"GetValueFromJson(@RequestBody),\"page\")!=GetValueFromJson(@(RequestBody), \"total_pages\")"}</property>
+                <property
+                  dataType="System.String"
+                  description="The HTTP Method to use when sending requests."
+                  expressionType="Notify"
+                  name="HttpMethod">GET</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the variable to get the json document from."
+                  expressionType="Notify"
+                  name="InputVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the path to the Item to get the json document from."
+                  expressionType="Notify"
+                  name="LocalFilePath"></property>
+                <property
+                  dataType="System.Int32"
+                  description="The max number of identical requests that will be before an error is raised."
+                  expressionType="Notify"
+                  name="MaxIdenticalRequests">1</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.JsonSourceComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Upload date\JSON Source.Connections[HTTP (KingswaySoft)]"
+                  connectionManagerID="Package.ConnectionManagers[HTTP Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[HTTP Connection Manager]"
+                  description="ProductivityPack"
+                  name="HTTP (KingswaySoft)" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Upload date\JSON Source.Outputs[Root]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Root"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.Int32"
+                      description="KeyField"
+                      name="KeyField">#{Package\Upload date\JSON Source.Outputs[Root].ExternalColumns[_RowIndex]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.Int32"
+                      description="RowIndexField"
+                      name="RowIndexField">#{Package\Upload date\JSON Source.Outputs[Root].ExternalColumns[_RowIndex]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.Int32"
+                      description="ParentId"
+                      name="ParentId">#{Package\Upload date\-1:invalid}</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Upload date\JSON Source.Outputs[Root].Columns[_RowIndex]"
+                      dataType="i8"
+                      externalMetadataColumnId="Package\Upload date\JSON Source.Outputs[Root].ExternalColumns[_RowIndex]"
+                      lineageId="Package\Upload date\JSON Source.Outputs[Root].Columns[_RowIndex]"
+                      name="_RowIndex"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload date\JSON Source.Outputs[Root].Columns[id]"
+                      dataType="i8"
+                      externalMetadataColumnId="Package\Upload date\JSON Source.Outputs[Root].ExternalColumns[id]"
+                      lineageId="Package\Upload date\JSON Source.Outputs[Root].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload date\JSON Source.Outputs[Root].Columns[date]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload date\JSON Source.Outputs[Root].ExternalColumns[date]"
+                      length="50"
+                      lineageId="Package\Upload date\JSON Source.Outputs[Root].Columns[date]"
+                      name="date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload date\JSON Source.Outputs[Root].Columns[total_deaths]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload date\JSON Source.Outputs[Root].ExternalColumns[total_deaths]"
+                      length="50"
+                      lineageId="Package\Upload date\JSON Source.Outputs[Root].Columns[total_deaths]"
+                      name="total_deaths"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload date\JSON Source.Outputs[Root].Columns[new_deaths]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload date\JSON Source.Outputs[Root].ExternalColumns[new_deaths]"
+                      length="50"
+                      lineageId="Package\Upload date\JSON Source.Outputs[Root].Columns[new_deaths]"
+                      name="new_deaths"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload date\JSON Source.Outputs[Root].Columns[pm25]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload date\JSON Source.Outputs[Root].ExternalColumns[pm25]"
+                      length="50"
+                      lineageId="Package\Upload date\JSON Source.Outputs[Root].Columns[pm25]"
+                      name="pm25"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload date\JSON Source.Outputs[Root].Columns[pm10]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload date\JSON Source.Outputs[Root].ExternalColumns[pm10]"
+                      length="50"
+                      lineageId="Package\Upload date\JSON Source.Outputs[Root].Columns[pm10]"
+                      name="pm10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload date\JSON Source.Outputs[Root].Columns[o3]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload date\JSON Source.Outputs[Root].ExternalColumns[o3]"
+                      length="50"
+                      lineageId="Package\Upload date\JSON Source.Outputs[Root].Columns[o3]"
+                      name="o3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload date\JSON Source.Outputs[Root].Columns[no2]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload date\JSON Source.Outputs[Root].ExternalColumns[no2]"
+                      length="50"
+                      lineageId="Package\Upload date\JSON Source.Outputs[Root].Columns[no2]"
+                      name="no2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload date\JSON Source.Outputs[Root].Columns[so2]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload date\JSON Source.Outputs[Root].ExternalColumns[so2]"
+                      length="50"
+                      lineageId="Package\Upload date\JSON Source.Outputs[Root].Columns[so2]"
+                      name="so2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload date\JSON Source.Outputs[Root].Columns[co]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload date\JSON Source.Outputs[Root].ExternalColumns[co]"
+                      length="50"
+                      lineageId="Package\Upload date\JSON Source.Outputs[Root].Columns[co]"
+                      name="co"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload date\JSON Source.Outputs[Root].Columns[city]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload date\JSON Source.Outputs[Root].ExternalColumns[city]"
+                      length="50"
+                      lineageId="Package\Upload date\JSON Source.Outputs[Root].Columns[city]"
+                      name="city"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Upload date\JSON Source.Outputs[Root].ExternalColumns[_RowIndex]"
+                      dataType="i8"
+                      name="_RowIndex" />
+                    <externalMetadataColumn
+                      refId="Package\Upload date\JSON Source.Outputs[Root].ExternalColumns[id]"
+                      dataType="i8"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Upload date\JSON Source.Outputs[Root].ExternalColumns[date]"
+                      dataType="wstr"
+                      length="50"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\Upload date\JSON Source.Outputs[Root].ExternalColumns[total_deaths]"
+                      dataType="wstr"
+                      length="50"
+                      name="total_deaths" />
+                    <externalMetadataColumn
+                      refId="Package\Upload date\JSON Source.Outputs[Root].ExternalColumns[new_deaths]"
+                      dataType="wstr"
+                      length="50"
+                      name="new_deaths" />
+                    <externalMetadataColumn
+                      refId="Package\Upload date\JSON Source.Outputs[Root].ExternalColumns[pm25]"
+                      dataType="wstr"
+                      length="50"
+                      name="pm25" />
+                    <externalMetadataColumn
+                      refId="Package\Upload date\JSON Source.Outputs[Root].ExternalColumns[pm10]"
+                      dataType="wstr"
+                      length="50"
+                      name="pm10" />
+                    <externalMetadataColumn
+                      refId="Package\Upload date\JSON Source.Outputs[Root].ExternalColumns[o3]"
+                      dataType="wstr"
+                      length="50"
+                      name="o3" />
+                    <externalMetadataColumn
+                      refId="Package\Upload date\JSON Source.Outputs[Root].ExternalColumns[no2]"
+                      dataType="wstr"
+                      length="50"
+                      name="no2" />
+                    <externalMetadataColumn
+                      refId="Package\Upload date\JSON Source.Outputs[Root].ExternalColumns[so2]"
+                      dataType="wstr"
+                      length="50"
+                      name="so2" />
+                    <externalMetadataColumn
+                      refId="Package\Upload date\JSON Source.Outputs[Root].ExternalColumns[co]"
+                      dataType="wstr"
+                      length="50"
+                      name="co" />
+                    <externalMetadataColumn
+                      refId="Package\Upload date\JSON Source.Outputs[Root].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="50"
+                      name="city" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Upload date\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Data]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Upload date\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-ON7OS8K.HD]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-ON7OS8K.HD]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Upload date\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Upload date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[id]"
+                      cachedDataType="i8"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\Upload date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[data_id]"
+                      lineageId="Package\Upload date\JSON Source.Outputs[Root].Columns[id]" />
+                    <inputColumn
+                      refId="Package\Upload date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="date"
+                      externalMetadataColumnId="Package\Upload date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[data]"
+                      lineageId="Package\Upload date\JSON Source.Outputs[Root].Columns[date]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Upload date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[data_id]"
+                      dataType="i4"
+                      name="data_id" />
+                    <externalMetadataColumn
+                      refId="Package\Upload date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[data]"
+                      dataType="dbDate"
+                      name="data" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Upload date\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Upload date\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Upload date\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Upload date\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Upload date\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Upload date\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Upload date.Paths[Root]"
+              endId="Package\Upload date\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Root"
+              startId="Package\Upload date\JSON Source.Outputs[Root]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Upload geography"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{db9dbdcb-5c4d-4467-a0fb-ba0601b2cfa6}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Upload geography"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Upload geography\JSON Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Retrieves JSON documents and extracts them into columns."
+              name="JSON Source"
+              usesDispositions="true"
+              version="5">
+              <properties>
+                <property
+                  dataType="System.String"
+                  name="Design">[{"NodeType":2,"OutputType":"Output","OutputOrColumnName":"Root","Children":[{"NodeName":"id","NodeType":3,"OutputType":"Column","OutputOrColumnName":"id"},{"NodeName":"date","NodeType":3,"OutputType":"Column","OutputOrColumnName":"date"},{"NodeName":"total_deaths","NodeType":3,"OutputType":"Column","OutputOrColumnName":"total_deaths"},{"NodeName":"new_deaths","NodeType":3,"OutputType":"Column","OutputOrColumnName":"new_deaths"},{"NodeName":"pm25","NodeType":3,"OutputType":"Column","OutputOrColumnName":"pm25"},{"NodeName":"pm10","NodeType":3,"OutputType":"Column","OutputOrColumnName":"pm10"},{"NodeName":"o3","NodeType":3,"OutputType":"Column","OutputOrColumnName":"o3"},{"NodeName":"no2","NodeType":3,"OutputType":"Column","OutputOrColumnName":"no2"},{"NodeName":"so2","NodeType":3,"OutputType":"Column","OutputOrColumnName":"so2"},{"NodeName":"co","NodeType":3,"OutputType":"Column","OutputOrColumnName":"co"},{"NodeName":"city","NodeType":3,"OutputType":"Column","OutputOrColumnName":"city"}]}]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the text qualifier to use when merging repeated values."
+                  expressionType="Notify"
+                  name="IsRepeatedTextQualifier">Double-Quote ( " )</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the text delimiter to use when merging repeated values."
+                  expressionType="Notify"
+                  name="IsRepeatedTextDelimiter">Comma ( , )</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how to read null values from the document."
+                  expressionType="Notify"
+                  name="NullMode"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.JsonExtractNullMode">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the timzone to convert DateTimes to"
+                  expressionType="Notify"
+                  name="OutputTimezone"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.TimeZone, KingswaySoft.IntegrationToolkit.ProductivityPack, Version=1.0.2019.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the text encoding to use when reading the document."
+                  expressionType="Notify"
+                  name="Encoding">65001</property>
+                <property
+                  dataType="System.String"
+                  description="The relative path of the HTTP request that will be combined with the base path from the connection manager."
+                  expressionType="Notify"
+                  name="RelativePath">{"IsExpression":false,"Value":""}</property>
+                <property
+                  dataType="System.String"
+                  description="The body of the HTTP request."
+                  expressionType="Notify"
+                  name="RequestBody">{"IsExpression":false,"Value":""}</property>
+                <property
+                  dataType="System.String"
+                  description="The headers that will be used in the request."
+                  expressionType="Notify"
+                  name="RequestHeaders">[]</property>
+                <property
+                  dataType="System.String"
+                  description="The query string parameters that will be used in the request."
+                  expressionType="Notify"
+                  name="RequestQueryStringParameters">[]</property>
+                <property
+                  dataType="System.String"
+                  description="The expression that determines if requests should keep being sent."
+                  expressionType="Notify"
+                  name="RequestAgainRule">{"IsExpression":false,"Value":"GetValueFromJson(@RequestBody),\"page\")!=GetValueFromJson(@(RequestBody), \"total_pages\")"}</property>
+                <property
+                  dataType="System.String"
+                  description="The HTTP Method to use when sending requests."
+                  expressionType="Notify"
+                  name="HttpMethod">GET</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the variable to get the json document from."
+                  expressionType="Notify"
+                  name="InputVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the path to the Item to get the json document from."
+                  expressionType="Notify"
+                  name="LocalFilePath"></property>
+                <property
+                  dataType="System.Int32"
+                  description="The max number of identical requests that will be before an error is raised."
+                  expressionType="Notify"
+                  name="MaxIdenticalRequests">1</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.JsonSourceComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Upload geography\JSON Source.Connections[HTTP (KingswaySoft)]"
+                  connectionManagerID="Package.ConnectionManagers[HTTP Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[HTTP Connection Manager]"
+                  description="ProductivityPack"
+                  name="HTTP (KingswaySoft)" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Upload geography\JSON Source.Outputs[Root]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Root"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.Int32"
+                      description="KeyField"
+                      name="KeyField">#{Package\Upload geography\JSON Source.Outputs[Root].ExternalColumns[_RowIndex]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.Int32"
+                      description="RowIndexField"
+                      name="RowIndexField">#{Package\Upload geography\JSON Source.Outputs[Root].ExternalColumns[_RowIndex]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.Int32"
+                      description="ParentId"
+                      name="ParentId">#{Package\Upload geography\-1:invalid}</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Upload geography\JSON Source.Outputs[Root].Columns[_RowIndex]"
+                      dataType="i8"
+                      externalMetadataColumnId="Package\Upload geography\JSON Source.Outputs[Root].ExternalColumns[_RowIndex]"
+                      lineageId="Package\Upload geography\JSON Source.Outputs[Root].Columns[_RowIndex]"
+                      name="_RowIndex"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload geography\JSON Source.Outputs[Root].Columns[id]"
+                      dataType="i8"
+                      externalMetadataColumnId="Package\Upload geography\JSON Source.Outputs[Root].ExternalColumns[id]"
+                      lineageId="Package\Upload geography\JSON Source.Outputs[Root].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload geography\JSON Source.Outputs[Root].Columns[date]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload geography\JSON Source.Outputs[Root].ExternalColumns[date]"
+                      length="50"
+                      lineageId="Package\Upload geography\JSON Source.Outputs[Root].Columns[date]"
+                      name="date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload geography\JSON Source.Outputs[Root].Columns[total_deaths]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload geography\JSON Source.Outputs[Root].ExternalColumns[total_deaths]"
+                      length="50"
+                      lineageId="Package\Upload geography\JSON Source.Outputs[Root].Columns[total_deaths]"
+                      name="total_deaths"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload geography\JSON Source.Outputs[Root].Columns[new_deaths]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload geography\JSON Source.Outputs[Root].ExternalColumns[new_deaths]"
+                      length="50"
+                      lineageId="Package\Upload geography\JSON Source.Outputs[Root].Columns[new_deaths]"
+                      name="new_deaths"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload geography\JSON Source.Outputs[Root].Columns[pm25]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload geography\JSON Source.Outputs[Root].ExternalColumns[pm25]"
+                      length="50"
+                      lineageId="Package\Upload geography\JSON Source.Outputs[Root].Columns[pm25]"
+                      name="pm25"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload geography\JSON Source.Outputs[Root].Columns[pm10]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload geography\JSON Source.Outputs[Root].ExternalColumns[pm10]"
+                      length="50"
+                      lineageId="Package\Upload geography\JSON Source.Outputs[Root].Columns[pm10]"
+                      name="pm10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload geography\JSON Source.Outputs[Root].Columns[o3]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload geography\JSON Source.Outputs[Root].ExternalColumns[o3]"
+                      length="50"
+                      lineageId="Package\Upload geography\JSON Source.Outputs[Root].Columns[o3]"
+                      name="o3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload geography\JSON Source.Outputs[Root].Columns[no2]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload geography\JSON Source.Outputs[Root].ExternalColumns[no2]"
+                      length="50"
+                      lineageId="Package\Upload geography\JSON Source.Outputs[Root].Columns[no2]"
+                      name="no2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload geography\JSON Source.Outputs[Root].Columns[so2]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload geography\JSON Source.Outputs[Root].ExternalColumns[so2]"
+                      length="50"
+                      lineageId="Package\Upload geography\JSON Source.Outputs[Root].Columns[so2]"
+                      name="so2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload geography\JSON Source.Outputs[Root].Columns[co]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload geography\JSON Source.Outputs[Root].ExternalColumns[co]"
+                      length="50"
+                      lineageId="Package\Upload geography\JSON Source.Outputs[Root].Columns[co]"
+                      name="co"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Upload geography\JSON Source.Outputs[Root].Columns[city]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Upload geography\JSON Source.Outputs[Root].ExternalColumns[city]"
+                      length="50"
+                      lineageId="Package\Upload geography\JSON Source.Outputs[Root].Columns[city]"
+                      name="city"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Upload geography\JSON Source.Outputs[Root].ExternalColumns[_RowIndex]"
+                      dataType="i8"
+                      name="_RowIndex" />
+                    <externalMetadataColumn
+                      refId="Package\Upload geography\JSON Source.Outputs[Root].ExternalColumns[id]"
+                      dataType="i8"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Upload geography\JSON Source.Outputs[Root].ExternalColumns[date]"
+                      dataType="wstr"
+                      length="50"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\Upload geography\JSON Source.Outputs[Root].ExternalColumns[total_deaths]"
+                      dataType="wstr"
+                      length="50"
+                      name="total_deaths" />
+                    <externalMetadataColumn
+                      refId="Package\Upload geography\JSON Source.Outputs[Root].ExternalColumns[new_deaths]"
+                      dataType="wstr"
+                      length="50"
+                      name="new_deaths" />
+                    <externalMetadataColumn
+                      refId="Package\Upload geography\JSON Source.Outputs[Root].ExternalColumns[pm25]"
+                      dataType="wstr"
+                      length="50"
+                      name="pm25" />
+                    <externalMetadataColumn
+                      refId="Package\Upload geography\JSON Source.Outputs[Root].ExternalColumns[pm10]"
+                      dataType="wstr"
+                      length="50"
+                      name="pm10" />
+                    <externalMetadataColumn
+                      refId="Package\Upload geography\JSON Source.Outputs[Root].ExternalColumns[o3]"
+                      dataType="wstr"
+                      length="50"
+                      name="o3" />
+                    <externalMetadataColumn
+                      refId="Package\Upload geography\JSON Source.Outputs[Root].ExternalColumns[no2]"
+                      dataType="wstr"
+                      length="50"
+                      name="no2" />
+                    <externalMetadataColumn
+                      refId="Package\Upload geography\JSON Source.Outputs[Root].ExternalColumns[so2]"
+                      dataType="wstr"
+                      length="50"
+                      name="so2" />
+                    <externalMetadataColumn
+                      refId="Package\Upload geography\JSON Source.Outputs[Root].ExternalColumns[co]"
+                      dataType="wstr"
+                      length="50"
+                      name="co" />
+                    <externalMetadataColumn
+                      refId="Package\Upload geography\JSON Source.Outputs[Root].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="50"
+                      name="city" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Upload geography\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Geografia]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Upload geography\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-ON7OS8K.HD]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-ON7OS8K.HD]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Upload geography\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Upload geography\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[city]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="city"
+                      externalMetadataColumnId="Package\Upload geography\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[miasto]"
+                      lineageId="Package\Upload geography\JSON Source.Outputs[Root].Columns[city]" />
+                    <inputColumn
+                      refId="Package\Upload geography\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[id]"
+                      cachedDataType="i8"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\Upload geography\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[geografia_id]"
+                      lineageId="Package\Upload geography\JSON Source.Outputs[Root].Columns[id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Upload geography\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[geografia_id]"
+                      dataType="i4"
+                      name="geografia_id" />
+                    <externalMetadataColumn
+                      refId="Package\Upload geography\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[miasto]"
+                      dataType="wstr"
+                      length="50"
+                      name="miasto" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Upload geography\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Upload geography\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Upload geography\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Upload geography\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Upload geography\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Upload geography\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Upload geography.Paths[Root]"
+              endId="Package\Upload geography\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Root"
+              startId="Package\Upload geography\JSON Source.Outputs[Root]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{E5EDE57C-CD97-48DD-A0B6-0CF2F1C30C85}"
+      DTS:From="Package\Upload date"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Upload geography" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{5C2C68FF-B1DB-4817-9616-8CDC762D529A}"
+      DTS:From="Package\Upload geography"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Upload COVID statistic" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{3E7FE1AF-B026-49A0-B0FD-355D3978987F}"
+      DTS:From="Package\Upload COVID statistic"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Upload AIR condition" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{9A918D51-BB13-4A94-B4C2-41557CDA8585}"
+      DTS:From="Package\Upload AIR condition"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Update AIR condition" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Update AIR condition"
+          TopLeft="738,147" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Upload AIR condition"
+          TopLeft="756,52" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Upload COVID statistic"
+          TopLeft="528,57" />
+        <NodeLayout
+          Size="136,42"
+          Id="Package\Upload date"
+          TopLeft="90,62" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Upload geography"
+          TopLeft="334,52" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="226,83">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="108,-10"
+              Start="0,0"
+              End="100.5,-10">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="50,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="50,0"
+                    Point2="54,0"
+                    Point3="54,-4" />
+                  <mssgle:LineSegment
+                    End="54,-6" />
+                  <mssgle:CubicBezierSegment
+                    Point1="54,-6"
+                    Point2="54,-10"
+                    Point3="58,-10" />
+                  <mssgle:LineSegment
+                    End="100.5,-10" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="499,75.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="29,0"
+              Start="0,0"
+              End="21.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="21.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="713,75.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="43,0"
+              Start="0,0"
+              End="35.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="35.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="845,94">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-17.5,53"
+              Start="0,0"
+              End="-17.5,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.5"
+                    Point2="0,26.5"
+                    Point3="-4,26.5" />
+                  <mssgle:LineSegment
+                    End="-13.5,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13.5,26.5"
+                    Point2="-17.5,26.5"
+                    Point3="-17.5,30.5" />
+                  <mssgle:LineSegment
+                    End="-17.5,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Update AIR condition">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="162,49"
+          Id="Package\Update AIR condition\OLE DB Source"
+          TopLeft="401,26" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Update AIR condition\OLE DB Command"
+          TopLeft="399,205" />
+        <EdgeLayout
+          Id="Package\Update AIR condition.Paths[OLE DB Source Output]"
+          TopLeft="482,75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,130"
+              Start="0,0"
+              End="0,122.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,122.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Update AIR condition\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Upload AIR condition">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Upload AIR condition\JSON Source"
+          TopLeft="473,31" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Upload AIR condition\Data Conversion"
+          TopLeft="465,170" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Upload AIR condition\OLE DB Destination"
+          TopLeft="450,287" />
+        <EdgeLayout
+          Id="Package\Upload AIR condition.Paths[Root]"
+          TopLeft="542.75,73">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,97"
+              Start="0,0"
+              End="0,89.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,89.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Upload AIR condition.Paths[Data Conversion Output]"
+          TopLeft="539.25,212">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,75"
+              Start="0,0"
+              End="0,67.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Upload AIR condition\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Upload COVID statistic">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Upload COVID statistic\OLE DB Destination"
+          TopLeft="346,290" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Upload COVID statistic\JSON Source"
+          TopLeft="355,41" />
+        <EdgeLayout
+          Id="Package\Upload COVID statistic.Paths[Root]"
+          TopLeft="428,83">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,207"
+              Start="0,0"
+              End="0,199.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,199.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Upload COVID statistic\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Upload date">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Upload date\OLE DB Destination"
+          TopLeft="356,251" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Upload date\JSON Source"
+          TopLeft="372,72" />
+        <EdgeLayout
+          Id="Package\Upload date.Paths[Root]"
+          TopLeft="441.5,114">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,137"
+              Start="0,0"
+              End="0,129.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,129.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Upload date\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Upload geography">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Upload geography\OLE DB Destination"
+          TopLeft="337,189" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Upload geography\JSON Source"
+          TopLeft="355,41" />
+        <EdgeLayout
+          Id="Package\Upload geography.Paths[Root]"
+          TopLeft="423.5,83">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,106"
+              Start="0,0"
+              End="0,98.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,98.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Upload geography\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
