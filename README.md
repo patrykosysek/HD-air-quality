@@ -1,2 +1,2 @@
 # HD
-Projekt zawierający ETL oraz projekt zawierający CUBE
+Projekt zawierający proces ETL oraz projekt zawierający kostkę danych
